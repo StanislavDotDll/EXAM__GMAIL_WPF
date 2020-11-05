@@ -1,0 +1,78 @@
+﻿<Window x:Class="Gmail.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gmail"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="LogInForm" Visibility="Visible">
+            <TextBox x:Name="usersEmai" BorderBrush="Silver" BorderThickness="1.5px" Margin="255,184,255,194" FontSize="18" />
+            <PasswordBox x:Name="userPassword" BorderThickness="1.5px" Margin="255,260,255,118" FontSize="12" ></PasswordBox>
+            <Label x:Name="usersEmail" Content="Email :" HorizontalAlignment="Left" Margin="255,149,0,0" VerticalAlignment="Top" Height="35" Width="200" FontSize="16"/>
+            <Label Content="Password :" HorizontalAlignment="Left" Margin="255,225,0,0" VerticalAlignment="Top" Height="35" Width="200" FontSize="16"/>
+            <Grid x:Name="Logo" Margin="232,58,230,280">
+                <Label Content="G"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,264,0" VerticalAlignment="Center" Height="81" Width="66" FontSize="64" FontFamily="Global User Interface" Foreground="Blue" Background="{x:Null}"/>
+                <Label Content="M" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="66,0,0,0" VerticalAlignment="Top" Height="81" Width="66" FontSize="64" FontFamily="Global User Interface" Foreground="Red" Background="{x:Null}"/>
+                <Label Content="A" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="132,0,0,0" VerticalAlignment="Top" Height="81" Width="66" FontSize="64" FontFamily="Global User Interface" Foreground="#FFF3B604" Background="{x:Null}"/>
+                <Label Content="I" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="198,0,0,0" VerticalAlignment="Top" Height="81" Width="66" FontSize="64" FontFamily="Global User Interface" Foreground="#FF00C100" Background="{x:Null}"/>
+                <Label Content="L" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="264,0,0,0" VerticalAlignment="Top" Height="81" Width="66" FontSize="64" FontFamily="Global User Interface" Foreground="#FFB0B0B0" Background="{x:Null}"/>
+
+            </Grid>
+
+            <Button Content="LogIn" x:Name="LogIn" HorizontalAlignment="Left" Padding="0px" Margin="330,308,0,0" VerticalAlignment="Top" Width="124" RenderTransformOrigin="0.5,0.5" Height="37" FontSize="22" FontFamily="Calibri" FontWeight="Bold" Click="LogIn_Click" >
+                <Button.Template>
+                    <ControlTemplate  TargetType="Button" >
+                        <Grid>
+                            <Border CornerRadius="5"  Background="#FF456DB2" />
+                            <Label Foreground="White" BorderBrush="White" HorizontalContentAlignment="Center">LogIn</Label>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid x:Name="SendForm" Visibility="Hidden">
+            <Label Margin="35,14,605,363" FontSize="14">Headline:</Label>
+            <TextBox x:Name="headlin" Margin="35,42,35,315"/>
+            <Label Margin="35,108,605,270" FontSize="14">Body:</Label>
+            <TextBox x:Name="Message" Margin="35,136,35,54"/>
+            <Label Margin="36,370,670,10" FontSize="14">Recipient:</Label>
+            <TextBox x:Name="recipient" Margin="110,370,175,10"/>
+            <Button x:Name="SendButton" Margin="622,370,78,10" Click="SendButton_Click">Send</Button>
+            <Button Margin="719,370,35,10" Content="File" Click="Button_Click"/>
+        </Grid>
+
+        <Grid x:Name="MainForm" Visibility="Hidden">
+            <Button Margin="0,0,639,378" Click="Button_Click_1" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Вхідні</Button>
+            <Button Margin="0,41,639,336" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Із зірочкою</Button>
+            <Button Margin="0,83,639,294" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Відкладені</Button>
+            <Button Margin="0,125,639,252" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Надіслані</Button>
+            <Button Margin="0,167,639,210" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Чернетки</Button>
+            <Button Margin="0,209,639,168" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Важливі</Button>
+            <Button Margin="0,293,639,84" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Чати</Button>
+            <Button Margin="0,251,639,126" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Заплановані</Button>
+            <Button Margin="0,335,639,42" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Спам</Button>
+            <Button Margin="0,377,639,0" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Malgun Gothic">Кошик</Button>
+            <ListBox x:Name="Letters" HorizontalAlignment="Left" Height="419" Margin="153,0,0,0" VerticalAlignment="Top" Width="639">
+                <ListBoxItem Height="41" FontSize="14">example@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do  eiusmodiasf...</ListBoxItem>
+                <ListBoxItem Height="41" FontSize="14">example2@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodiaf...</ListBoxItem>
+                <ListBoxItem Height="41" FontSize="14">example3@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodiaf...</ListBoxItem>
+                <ListBoxItem Height="41" FontSize="14">example4@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodiaf...</ListBoxItem>
+                <ListBoxItem Height="41" FontSize="14">example5@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodiaf...</ListBoxItem>
+                <ListBoxItem Height="41" FontSize="14">example6@gmail.com  :   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodiaf...</ListBoxItem>
+            </ListBox>
+            <Button Margin="650,368,10,10" Click="Button_Click_1" FontSize="16" Background="{x:Null}" BorderBrush="#FF979797" FontFamily="Malgun Gothic" Content="Написати">
+                <Button.Template>
+                    <ControlTemplate  TargetType="Button" >
+                        <Grid>
+                            <Border CornerRadius="20" BorderThickness="3px" BorderBrush="Silver" Background="#fff" />
+                            <Label  BorderBrush="White" VerticalAlignment="Center" HorizontalContentAlignment="Center">╋ Написати</Label>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Grid>
+
+</Window>
